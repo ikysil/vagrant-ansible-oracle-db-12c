@@ -1,6 +1,6 @@
 ---
-- name: Configure Oracle Linux 7 with Oracle Database 12c
-  hosts: oradb
+- name: Configure CentOS 6/7 with Oracle Database 12c
+  hosts: oradb3
   sudo: True
   vars_files:
     # User defined variables for infrastructure

@@ -5,6 +5,8 @@ extra_groups:
   - oper
 oracle_base: /oracle/app
 
+installer_source: /vagrant/roles/oracle-install/files
+
 installer_archives:
   - 'linuxamd64_12102_database_1of2.zip'
   - 'linuxamd64_12102_database_2of2.zip'
@@ -26,7 +28,7 @@ oracle_charset: 'AL32UTF8'
 oracle_memory_option: 'false'
 # memory target
 oracle_memory_mb: 1536
-oracle_install_samples: 'true'
+oracle_install_samples: 'false'
 oracle_management_option: 'DEFAULT'
 oracle_enable_recovery: 'true'
 oracle_storage_type: 'FILE_SYSTEM_STORAGE'

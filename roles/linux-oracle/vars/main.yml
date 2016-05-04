@@ -7,6 +7,7 @@ packages_list:
   - glibc-devel
   - glibc-devel.i686
   - ksh
+  - libaio
   - libaio.i686
   - libaio-devel
   - libaio-devel.i686
@@ -27,14 +28,16 @@ kernel_params:
   kernel.sem: 250 32000 100 128
   kernel.shmmni: 4096
 # 1.5 GB Shared memory 500mb for linux kernel (for 2GB virtual machine)
-  kernel.shmall: 393216
+  kernel.shmall: 1073741824
 # 1 GB Half of the physical memory (for 2GB virtual machine)
   kernel.shmmax: 4398046511104
 # For 1Gbps with 1ms latency 16MB buffer
-  net.core.rmem_max: 16777216
-  net.core.wmem_max: 16777216
-  net.ipv4.tcp_rmem: 4096 87380 16777216
-  net.ipv4.tcp_wmem: 4096 65536 16777216
+  net.core.rmem_default: 262144
+  net.core.rmem_max: 4194304
+  net.core.wmem_default: 262144
+  net.core.wmem_max: 1048576
+  net.ipv4.tcp_rmem: 4096 87380 4194304
+  net.ipv4.tcp_wmem: 4096 65536 1048576
 # Minimize swap file use
   vm.swappiness: 10
   vm.dirty_background_ratio: 5
