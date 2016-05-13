@@ -1,36 +1,52 @@
 packages_list:
-  - compat-libcap1
-  - gcc
-  - gcc-c++
-  - glibc
-  - glibc.i686
-  - glibc-devel
-  - glibc-devel.i686
-  - ksh
-  - libaio
-  - libaio.i686
-  - libaio-devel
-  - libaio-devel.i686
-  #- libgcc.i686
-  - libstdc++.i686
-  - libstdc++-devel
-  - libstdc++-devel.i686
-  - libXi
-  - libXi.i686
-  - libXtst
-  - libXtst.i686
-  - sysstat
-  - unixODBC
   - unzip
+  - binutils.x86_64
+  - compat-libcap1.x86_64
+  - compat-libstdc++-33.x86_64
+  - compat-libstdc++-33.i686
+#  - compat-gcc-34
+#  - compat-gcc-34-c++
+  - gcc.x86_64
+  - gcc-c++.x86_64
+  - glibc.i686
+  - glibc.x86_64
+  - glibc-devel.i686
+  - glibc-devel.x86_64
+  - ksh.x86_64
+  - libgcc.i686
+  - libgcc.x86_64
+  - libstdc++.i686
+  - libstdc++.x86_64
+  - libstdc++-devel.i686
+  - libstdc++-devel.x86_64
+  - libaio.i686
+  - libaio.x86_64
+  - libaio-devel.i686
+  - libaio-devel.x86_64
+  - libXext.i686
+  - libXext.x86_64
+  - libXtst.i686
+  - libXtst.x86_64
+  - libX11.x86_64
+  - libX11.i686
+  - libXau.x86_64
+  - libXau.i686
+  - libxcb.i686
+  - libxcb.x86_64
+  - libXi.i686
+  - libXi.x86_64
+  - make.x86_64
+  - unixODBC
+  - unixODBC-devel
+  - sysstat.x86_64
+
 kernel_params:
 # Shared memory and semaphore
 # look for document 226209.1 in oracle support for details
   kernel.sem: 250 32000 100 128
   kernel.shmmni: 4096
-# 1.5 GB Shared memory 500mb for linux kernel (for 2GB virtual machine)
-  kernel.shmall: 1073741824
-# 1 GB Half of the physical memory (for 2GB virtual machine)
-  kernel.shmmax: 4398046511104
+  kernel.shmall: 3072000
+  kernel.shmmax: 4294967295
 # For 1Gbps with 1ms latency 16MB buffer
   net.core.rmem_default: 262144
   net.core.rmem_max: 4194304
@@ -44,6 +60,7 @@ kernel_params:
   vm.dirty_ratio: 10
 # Max open file descriptors 512 * db processes + room for os
   fs.file-max: 409600
+  fs.aio-max-nr: 1048576
 # Shorten keep alive of connections
   net.ipv4.tcp_keepalive_time: 300
   net.ipv4.tcp_keepalive_intvl: 60
