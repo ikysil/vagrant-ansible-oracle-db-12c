@@ -85,3 +85,17 @@
 - shell: '{{ installation_folder }}/start-pluggable-dbs.sh'
   tags:
     - start-pluggable
+
+- name: Copy script to remove Oracle processes from high priority group
+  copy: src=oracle-no-high-priority.sh dest={{ installation_folder }}/ mode=755
+
+- name: Remove Oracle processes from high priority group
+  shell: '{{ installation_folder }}/oracle-no-high-priority.sh'
+
+- name: Stop Oracle DB
+  command: 'service oradb stop'
+  sudo_user: root
+
+- name: Start Oracle DB
+  command: 'service oradb start'
+  sudo_user: root
