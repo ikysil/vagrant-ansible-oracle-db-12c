@@ -53,7 +53,7 @@ Vagrant.configure(2) do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "2048"
+    vb.memory = "2560"
     vb.cpus = 2
     vb.name = "oradb12c"
 
