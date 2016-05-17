@@ -1,1 +1,1 @@
-oradb3 ansible_connection=local
+oradb3 ansible_ssh_host=oradb3.private ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
