@@ -5,6 +5,8 @@
 ################################################################################
 
 # ==> Configure Linux
+- name: Update system
+  yum: name=* exclude=kernel-* state=latest
 - name: Install required libraries
   yum: name={{ item }} state=present
   with_items: packages_list

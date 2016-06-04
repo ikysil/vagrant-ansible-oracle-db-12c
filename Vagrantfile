@@ -68,9 +68,10 @@ Vagrant.configure(2) do |config|
 
       vb.customize ["modifyvm", :id, "--rtcuseutc", "on"]
     end
+
     installer.vm.provision "shell", privileged: true, inline: <<-SHELL
       yum install -y epel-release
-      yum install -y ansible1.9
+      yum install -y ansible
     SHELL
 
     installer.vm.provision "shell", inline: <<-SHELL
